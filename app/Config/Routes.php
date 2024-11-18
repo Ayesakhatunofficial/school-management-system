@@ -23,7 +23,7 @@ $routes->group('/admin', static function ($routes) {
 
     $routes->get('logout', [AdminAuth::class, 'logout'], ['as' => 'admin.logout'], ['filter' => 'adminAuth']);
 
-    $routes->group('/', ['filter' => 'adminAuth'], static function ($routes) {
+    $routes->group('/', static function ($routes) {
         $routes->get('dashboard', [AdminDashboard::class, 'index'], ['as' => 'admin.dashboard']);
     });
 });
